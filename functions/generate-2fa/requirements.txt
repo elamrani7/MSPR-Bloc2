@@ -1,0 +1,4 @@
+pyotp
+qrcode
+pillow
+psycopg2-binary
