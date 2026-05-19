@@ -1,0 +1,6 @@
+bcrypt
+pyotp
+qrcode
+psycopg2-binary
+pillow
+pyjwt
