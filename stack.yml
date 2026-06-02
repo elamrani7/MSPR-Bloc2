@@ -7,7 +7,7 @@ functions:
   generate-password:
     lang: python3-http
     handler: ./functions/generate-password
-    image: youssefassoil/generate-password:latest
+    image: assoilyoussef/generate-password:latest
     secrets:
       - db-host
       - db-name
@@ -18,7 +18,7 @@ functions:
   generate-2fa:
     lang: python3-http
     handler: ./functions/generate-2fa
-    image: youssefassoil/generate-2fa:latest
+    image: assoilyoussef/generate-2fa:latest
     secrets:
       - db-host
       - db-name
@@ -29,7 +29,7 @@ functions:
   authenticate-user:
     lang: python3-http
     handler: ./functions/authenticate-user
-    image: youssefassoil/authenticate-user:latest
+    image: assoilyoussef/authenticate-user:latest
     secrets:
       - db-host
       - db-name
