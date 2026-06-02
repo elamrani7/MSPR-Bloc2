@@ -81,3 +81,9 @@ python -c "from importlib.util import spec_from_file_location, module_from_spec;
 Pour le guide complet, voir [docs/setup-local.md](docs/setup-local.md).
 
 Note Windows : les scripts `scripts/*.sh` sont prevus pour Bash. Utiliser Ubuntu/WSL ou Git Bash, ou les scripts PowerShell `scripts/*.ps1`. Si Docker affiche une erreur sur `dockerDesktopLinuxEngine`, ouvrir Docker Desktop et attendre que le moteur Linux soit demarre avant de relancer les commandes.
+
+
+
+
+(.venv) PS C:\Users\a.kuetche1\MSPR-Bloc2> python -c "import json; from importlib.util import spec_from_file_location, module_from_spec; spec = spec_from_file_location('handler', 'functions/generate-password/handler.py'); mod = module_from_spec(spec); spec.loader.exec_module(mod); print(mod.handle(json.dumps({'username':'testuser'})))"
+{"username": "testuser", "password": ",6vV2K7d9[=K&GD/7sOKyf1s", "message": "Password generated successfully"}
