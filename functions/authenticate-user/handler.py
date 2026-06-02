@@ -213,7 +213,7 @@ def authenticate_user(username, password, otp_code, connection=None):
             conn.close()
 
 
-def handle(req):
+def handle(req, context):
     try:
         username, password, otp_code = parse_request(req)
     except ValueError as exc:

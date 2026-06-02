@@ -107,7 +107,7 @@ def error_response(message, status_code):
     return json.dumps({"error": message, "status_code": status_code})
 
 
-def handle(req):
+def handle(req, context):
     try:
         username = parse_request(req)
     except ValueError as exc:
