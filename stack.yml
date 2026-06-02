@@ -7,7 +7,7 @@ functions:
   generate-password:
     lang: python3-http
     handler: ./functions/generate-password
-    image: acrmsprcofrap31181.azurecr.io/generate-password:latest
+    image: youssef-ASSOIL/generate-password:latest
     secrets:
       - db-host
       - db-name
@@ -18,7 +18,7 @@ functions:
   generate-2fa:
     lang: python3-http
     handler: ./functions/generate-2fa
-    image: acrmsprcofrap31181.azurecr.io/generate-2fa:latest
+    image: youssef-ASSOIL/generate-2fa:latest
     secrets:
       - db-host
       - db-name
@@ -29,7 +29,7 @@ functions:
   authenticate-user:
     lang: python3-http
     handler: ./functions/authenticate-user
-    image: acrmsprcofrap31181.azurecr.io/authenticate-user:latest
+    image: youssef-ASSOIL/authenticate-user:latest
     secrets:
       - db-host
       - db-name

@@ -24,10 +24,10 @@ jobs:
         run: |
           faas-cli template store pull python3-http
 
-      - name: Login to Azure Container Registry
+      - name: Login to Docker Hub
         run: |
-          echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_LOGIN_SERVER }} \
-            --username "${{ secrets.ACR_USERNAME }}" \
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            --username "${{ secrets.DOCKERHUB_USERNAME }}" \
             --password-stdin
 
       - name: Build functions
