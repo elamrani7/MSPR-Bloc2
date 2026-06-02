@@ -1,0 +1,38 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8081
+
+functions:
+  generate-password:
+    lang: python3-http
+    handler: ./functions/generate-password
+    image: acrmsprcofrap31181.azurecr.io/generate-password:latest
+    secrets:
+      - db-host
+      - db-name
+      - db-user
+      - db-password
+      - db-port
+
+  generate-2fa:
+    lang: python3-http
+    handler: ./functions/generate-2fa
+    image: acrmsprcofrap31181.azurecr.io/generate-2fa:latest
+    secrets:
+      - db-host
+      - db-name
+      - db-user
+      - db-password
+      - db-port
+
+  authenticate-user:
+    lang: python3-http
+    handler: ./functions/authenticate-user
+    image: acrmsprcofrap31181.azurecr.io/authenticate-user:latest
+    secrets:
+      - db-host
+      - db-name
+      - db-user
+      - db-password
+      - db-port

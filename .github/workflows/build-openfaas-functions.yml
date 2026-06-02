@@ -1,0 +1,39 @@
+name: Build and Push OpenFaaS Functions
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build-functions:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install OpenFaaS CLI
+        run: |
+          curl -sSL https://cli.openfaas.com | sudo sh
+          faas-cli version
+
+      - name: Pull OpenFaaS Python template
+        run: |
+          faas-cli template store pull python3-http
+
+      - name: Login to Azure Container Registry
+        run: |
+          echo "${{ secrets.ACR_PASSWORD }}" | docker login ${{ secrets.ACR_LOGIN_SERVER }} \
+            --username "${{ secrets.ACR_USERNAME }}" \
+            --password-stdin
+
+      - name: Build functions
+        run: |
+          faas-cli build -f stack.yml
+
+      - name: Push functions
+        run: |
+          faas-cli push -f stack.yml
