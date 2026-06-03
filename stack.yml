@@ -1,38 +1,38 @@
 version: 1.0
 provider:
   name: openfaas
-  gateway: http://127.0.0.1:8081
+  gateway: http://127.0.0.1:8082
 
 functions:
   generate-password:
     lang: python3-http
     handler: ./functions/generate-password
     image: assoilyoussef/generate-password:latest
-    secrets:
-      - db-host
-      - db-name
-      - db-user
-      - db-password
-      - db-port
+    environment:
+      DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+      DB_PORT: "5432"
+      DB_NAME: cofrapdb
+      DB_USER: pgadmin
+      DB_PASSWORD: "123admin"
 
   generate-2fa:
     lang: python3-http
     handler: ./functions/generate-2fa
     image: assoilyoussef/generate-2fa:latest
-    secrets:
-      - db-host
-      - db-name
-      - db-user
-      - db-password
-      - db-port
+    environment:
+      DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+      DB_PORT: "5432"
+      DB_NAME: cofrapdb
+      DB_USER: pgadmin
+      DB_PASSWORD: "123admin"
 
   authenticate-user:
     lang: python3-http
     handler: ./functions/authenticate-user
     image: assoilyoussef/authenticate-user:latest
-    secrets:
-      - db-host
-      - db-name
-      - db-user
-      - db-password
-      - db-port
+    environment:
+      DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+      DB_PORT: "5432"
+      DB_NAME: cofrapdb
+      DB_USER: pgadmin
+      DB_PASSWORD: "123admin"
