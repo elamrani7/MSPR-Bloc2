@@ -89,7 +89,7 @@ def parse_request(req):
         raise ValueError("Request body must be a valid JSON object")
 
     try:
-        data = json.loads(req)
+        data = json.loads(req.body)
     except json.JSONDecodeError as exc:
         raise ValueError("Request body must be a valid JSON object") from exc
 
