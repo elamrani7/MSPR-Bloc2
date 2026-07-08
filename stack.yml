@@ -1,4 +1,5 @@
 version: 1.0
+
 provider:
   name: openfaas
   gateway: http://127.0.0.1:8082
@@ -7,32 +8,44 @@ functions:
   generate-password:
     lang: python3-http
     handler: ./functions/generate-password
-    image: assoilyoussef/generate-password:latest
+    # image: assoilyoussef/generate-password:latest
+    image: kuetche/generate-password:latest
     environment:
-      DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+
+      DB_HOST: pg-mspr-cofrap-alex.postgres.database.azure.com
       DB_PORT: "5432"
       DB_NAME: cofrapdb
-      DB_USER: pgadmin
-      DB_PASSWORD: "123admin"
+      DB_USER: cofrapadmin
+      DB_PASSWORD: "Alex1995@"
+      DB_SSLMODE: "require"
+      TOTP_ENCRYPTION_KEY: "EtpyrflbCOoNb2hQGX40atgrZdxK5F_X0_erjRx_K7s="
 
   generate-2fa:
     lang: python3-http
     handler: ./functions/generate-2fa
-    image: assoilyoussef/generate-2fa:latest
+    # image: assoilyoussef/generate-2fa:latest
+    image: kuetche/generate-2fa:latest
     environment:
-      DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+
+      DB_HOST: pg-mspr-cofrap-alex.postgres.database.azure.com
       DB_PORT: "5432"
       DB_NAME: cofrapdb
-      DB_USER: pgadmin
-      DB_PASSWORD: "123admin"
+      DB_USER: cofrapadmin
+      DB_PASSWORD: "Alex1995@"
+      DB_SSLMODE: "require"
+      TOTP_ENCRYPTION_KEY: "EtpyrflbCOoNb2hQGX40atgrZdxK5F_X0_erjRx_K7s="
 
   authenticate-user:
     lang: python3-http
     handler: ./functions/authenticate-user
-    image: assoilyoussef/authenticate-user:latest
+    # image: assoilyoussef/authenticate-user:latest
+    image: kuetche/authenticate-user:latest
     environment:
-      DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+
+      DB_HOST: pg-mspr-cofrap-alex.postgres.database.azure.com
       DB_PORT: "5432"
       DB_NAME: cofrapdb
-      DB_USER: pgadmin
-      DB_PASSWORD: "123admin"
+      DB_USER: cofrapadmin
+      DB_PASSWORD: "Alex1995@"
+      DB_SSLMODE: "require"
+      TOTP_ENCRYPTION_KEY: "EtpyrflbCOoNb2hQGX40atgrZdxK5F_X0_erjRx_K7s="

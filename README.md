@@ -87,3 +87,28 @@ Note Windows : les scripts `scripts/*.sh` sont prevus pour Bash. Utiliser Ubuntu
 
 (.venv) PS C:\Users\a.kuetche1\MSPR-Bloc2> python -c "import json; from importlib.util import spec_from_file_location, module_from_spec; spec = spec_from_file_location('handler', 'functions/generate-password/handler.py'); mod = module_from_spec(spec); spec.loader.exec_module(mod); print(mod.handle(json.dumps({'username':'testuser'})))"
 {"username": "testuser", "password": ",6vV2K7d9[=K&GD/7sOKyf1s", "message": "Password generated successfully"}
+
+
+MOT_DE_PASSE_ADMIN_OPENFASS = WME3PdHqR01SOac6xJyTQrvemsb8flC4
+
+wsl -d Ubuntu
+
+
+### identifiants azure de youssef
+      # DB_HOST: pg-mspr-cofrap-8804.postgres.database.azure.com
+      # DB_PORT: "5432"
+      # DB_NAME: cofrapdb
+      # DB_USER: pgadmin
+      # DB_PASSWORD: "123admin"
+
+#### identifiants local avec docker
+      # DB_HOST: host.docker.internal
+      # DB_PORT: "15432"
+      # DB_NAME: cofrapdb
+      # DB_USER: cofrap
+      # DB_PASSWORD: cofrap2024
+      # TOTP_ENCRYPTION_KEY: "EtpyrflbCOoNb2hQGX40atgrZdxK5F_X0_erjRx_K7s="
+
+
+### commande pour lancer mon Backend
+kubectl port-forward -n openfaas svc/gateway 8082:8080
